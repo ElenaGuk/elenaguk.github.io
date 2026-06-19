@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+  Elena Guk — HOME / HUB (English). The site entry point.
+  4-page self-contained site: index.html (this) · meteorology.html · neurodiversity.html · travel.html
+  FILL IN BEFORE PUBLISHING (search REPLACE): email · LinkedIn URL.
+  Pre-filled: GitHub (github.com/ElenaGuk/Portfolio), ORCID (0009-0002-7335-7073).
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elena Guk — independent researcher &amp; designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,500&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F4F1; --paper-2:#EAEBE5; --ink:#1A2A2B; --ink-soft:#42514F;
+    --sea:#356962; --amber:#BF6E26; --amber-soft:#E7B583; --mist:#D4D8D0;
+    --shadow:0 1px 2px rgba(26,42,43,.05), 0 8px 28px rgba(26,42,43,.07);
+    --max:64rem;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Golos Text",system-ui,sans-serif; font-size:18px; line-height:1.62; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 1.5rem}
+  h1,h2,h3{font-family:"Spectral",Georgia,serif; font-weight:600; line-height:1.14; letter-spacing:-.01em; margin:0}
+  p{margin:0 0 1rem}
+  a{color:var(--sea)}
+  .eyebrow{font-family:"JetBrains Mono",monospace; font-weight:500; font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--sea)}
+
+  .topbar{position:sticky; top:0; z-index:50; background:rgba(243,244,241,.93); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid var(--mist)}
+  .topbar .bar{max-width:var(--max); margin:0 auto; padding:.55rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem}
+  .topbar .brand{font-family:"Spectral",serif; font-weight:600; font-size:1rem; color:var(--ink); text-decoration:none; white-space:nowrap}
+  .topbar .right{display:flex; align-items:center; gap:.85rem}
+  .lang{display:flex; gap:.15rem; font-family:"JetBrains Mono",monospace; font-size:.78rem}
+  .lang a{padding:.2rem .45rem; border-radius:6px; text-decoration:none; color:var(--ink-soft)}
+  .lang a.active{background:var(--ink); color:var(--paper)}
+  .lang a:not(.active):hover{background:var(--paper-2)}
+  .mini-cta{background:var(--amber); color:#fff; text-decoration:none; font-weight:600; font-size:.85rem; padding:.45rem 1rem; border-radius:999px; white-space:nowrap; transition:transform .15s}
+  .mini-cta:hover{transform:translateY(-1px)} .mini-cta:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
+  .icon-btn{display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:999px; border:1.5px solid var(--mist); color:var(--sea); text-decoration:none; transition:transform .15s, border-color .15s}
+  .icon-btn:hover{transform:translateY(-1px); border-color:var(--sea)} .icon-btn:focus-visible{outline:3px solid var(--sea); outline-offset:2px}
+
+  .hero{padding:3.4rem 0 3rem}
+  .hero h1{font-size:clamp(2.4rem,7vw,4rem); margin:.8rem 0 1.2rem}
+  .hero .lead{font-size:clamp(1.08rem,2.2vw,1.28rem); max-width:52ch; color:var(--ink-soft); margin-bottom:1.6rem}
+  .hero .pick{font-family:"JetBrains Mono",monospace; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 1rem}
+
+  .doors{display:grid; gap:1.1rem}
+  @media(min-width:48rem){.doors{grid-template-columns:repeat(3,1fr); gap:1.2rem}}
+  .door{display:flex; flex-direction:column; text-decoration:none; color:inherit; background:#fff; border:1px solid var(--mist); border-radius:16px; padding:1.6rem 1.5rem 1.4rem; box-shadow:var(--shadow); transition:transform .16s, box-shadow .16s; border-top:3px solid var(--sea); min-height:100%}
+  .door:hover{transform:translateY(-4px); box-shadow:0 16px 38px rgba(26,42,43,.13)}
+  .door:focus-visible{outline:3px solid var(--sea); outline-offset:3px}
+  .door.d2{border-top-color:var(--amber)} .door.d3{border-top-color:var(--ink)}
+  .door .glyph{color:var(--sea); margin-bottom:1rem; height:30px}
+  .door.d2 .glyph{color:var(--amber)} .door.d3 .glyph{color:var(--ink)}
+  .door .idx{font-family:"JetBrains Mono",monospace; font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:.45rem}
+  .door h2{font-size:1.3rem; margin-bottom:.55rem}
+  .door p{font-size:.95rem; color:var(--ink-soft); margin:0 0 1.2rem}
+  .door .go{margin-top:auto; font-family:"JetBrains Mono",monospace; font-size:.82rem; color:var(--sea); display:inline-flex; align-items:center; gap:.45rem}
+  .door.d2 .go{color:var(--amber)} .door.d3 .go{color:var(--ink)}
+  .door .go .arr{transition:transform .15s} .door:hover .go .arr{transform:translateX(4px)}
+
+  .connective{max-width:46ch; margin:2.4rem auto 0; text-align:center; font-family:"Spectral",serif; font-style:italic; font-size:1.12rem; color:var(--ink-soft)}
+
+  footer{background:var(--ink); color:#8fa09d; padding:2.2rem 0 2.8rem; font-size:.88rem; margin-top:3rem}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:.8rem 1.4rem; align-items:center; justify-content:space-between}
+  footer .name{font-family:"Spectral",serif; font-style:italic; color:var(--paper); font-size:1rem}
+  .footlinks{display:flex; flex-wrap:wrap; gap:.5rem .9rem; align-items:center}
+  .footlinks a{color:#c9d2cf; text-decoration:none; display:inline-flex; align-items:center; gap:.35rem} .footlinks a:hover{color:#fff}
+  .sitenav{display:flex; flex-wrap:wrap; gap:.35rem .55rem; font-family:"JetBrains Mono",monospace; font-size:.8rem; align-items:center; margin-top:.5rem; width:100%}
+  .sitenav a{color:#c9d2cf; text-decoration:none} .sitenav a:hover{color:#fff}
+  .sitenav .here{color:#7f8f8c; border-bottom:1px dotted #4a5a58; padding-bottom:1px}
+  .sitenav .sep{color:#46544f}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1; transform:none; transition:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="bar">
+    <a class="brand" href="#top">Elena Guk</a>
+    <div class="right">
+      <nav class="lang" aria-label="Language">
+        <a href="#" class="active" aria-current="page">EN</a>
+        <!-- REPLACE with your Russian home page, or delete this switch -->
+        <a href="index-ru.html">RU</a>
+      </nav>
+      <!-- REPLACE href with your LinkedIn profile URL -->
+      <a class="icon-btn" href="https://www.linkedin.com/in/REPLACE" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      <a class="mini-cta" href="mailto:you@example.com?subject=Hello%20Elena">Write to me</a>
+    </div>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Hello</span>
+    <h1>I'm Elena Guk.</h1>
+    <p class="lead">An independent researcher and designer in Amsterdam, working across three areas. They look unrelated &mdash; underneath, each one is about checking things against reality instead of the convenient assumption.</p>
+    <p class="pick">Where would you like to go?</p>
+
+    <div class="doors">
+      <a class="door d1 reveal" href="meteorology.html">
+        <span class="glyph" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,24 11,16 17,20 24,8 29,14"/></svg></span>
+        <span class="idx">Research · 01</span>
+        <h2>Polar meteorology</h2>
+        <p>Verifying AI weather forecasts against real Antarctic station data &mdash; and where reanalysis hides the errors.</p>
+        <span class="go">Enter <span class="arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="door d2 reveal" href="neurodiversity.html">
+        <span class="glyph" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13" cy="16" r="8"/><circle cx="19" cy="16" r="8"/></svg></span>
+        <span class="idx">Research · 02</span>
+        <h2>Neurodiversity &amp; work</h2>
+        <p>How autistic migrants are misread at work when a cultural and a neurotypical lens stack &mdash; and what changes it.</p>
+        <span class="go">Enter <span class="arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="door d3 reveal" href="travel.html">
+        <span class="glyph" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="23" x2="28" y2="23"/><path d="M9 23a7 7 0 0 1 14 0"/><line x1="16" y1="6" x2="16" y2="9.5"/><line x1="7" y1="11" x2="9.4" y2="13.4"/><line x1="25" y1="11" x2="22.6" y2="13.4"/></svg></span>
+        <span class="idx">Practice</span>
+        <h2>Accessible travel</h2>
+        <p>Trips planned around real conditions &mdash; for travellers ordinary tourism doesn't quite fit.</p>
+        <span class="go">Enter <span class="arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+    </div>
+
+    <p class="connective">Different fields, one habit of mind: distrust the convenient measure, and go back to what's actually there.</p>
+  </div>
+</header>
+
+<footer>
+  <div class="wrap">
+    <span class="name">Elena Guk &middot; Amsterdam</span>
+    <div class="footlinks">
+      <!-- REPLACE email + LinkedIn -->
+      <a href="mailto:you@example.com">Email</a>
+      <a href="https://www.linkedin.com/in/REPLACE" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/ElenaGuk/Portfolio" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://orcid.org/0009-0002-7335-7073" target="_blank" rel="noopener">ORCID</a>
+    </div>
+    <nav class="sitenav" aria-label="Site">
+      <span class="here" aria-current="page">Home</span><span class="sep">·</span>
+      <a href="meteorology.html">Polar meteorology</a><span class="sep">·</span>
+      <a href="neurodiversity.html">Neurodiversity &amp; work</a><span class="sep">·</span>
+      <a href="travel.html">Accessible travel</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
