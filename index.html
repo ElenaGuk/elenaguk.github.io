@@ -82,16 +82,30 @@
   .btn-2:focus-visible{outline:3px solid var(--amber-soft); outline-offset:3px}
   .btn-2.solid{background:var(--amber); color:#fff} .btn-2.solid:hover{transform:translateY(-2px)}
   .btn-2.ghost{background:transparent; color:var(--paper); border:1.5px solid #4a5a58} .btn-2.ghost:hover{border-color:var(--amber-soft); transform:translateY(-2px)}
+  /* hero portrait (added) */
+  .hero-top{display:grid; gap:1.6rem; align-items:center}
+  @media(min-width:48rem){.hero-top{grid-template-columns:1fr auto; gap:3rem}}
+  .hero-photo{justify-self:center}
+  .hero-photo img{display:block; width:250px; height:310px; object-fit:cover; border-radius:16px; border:1px solid var(--mist); box-shadow:var(--shadow); background:var(--paper-2)}
+  @media(max-width:32rem){.hero-photo img{width:200px; height:248px}}
+  /* topbar responsiveness (added) */
+  .brandwrap{display:flex; flex-wrap:wrap; align-items:baseline; gap:0 .4rem; min-width:0}
+  .topsections{display:flex; flex-wrap:wrap; align-items:baseline; gap:0 .4rem}
+  .topbar .sep{color:var(--mist)}
+  @media(max-width:56rem){.topsections{display:none}}
+  @media(max-width:40rem){.topbar .bar{flex-wrap:wrap; row-gap:.45rem} .topbar .right{gap:.55rem}}
+  .tg-btn{display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:999px; border:1.5px solid var(--mist); color:var(--sea); text-decoration:none; transition:transform .15s, border-color .15s}
+  .tg-btn:hover{transform:translateY(-1px); border-color:var(--sea)} .tg-btn:focus-visible{outline:3px solid var(--sea); outline-offset:2px}
 </style>
 </head>
 <body>
 
 <div class="topbar">
   <div class="bar">
-    <a class="brand" href="#top">Elena Guk · </a>
-    <a class="brand" href="meteorology.html">Antarctic meteorology</a><span class="sep">·</span>
-    <a class="brand" href="neurodiversity.html">Autism &amp; employment</a><span class="sep">·</span>
-    <a class="brand" href="travel.html">Accessible travel design</a>
+    <div class="brandwrap">
+      <a class="brand" href="#top">Elena Guk</a>
+      <span class="topsections"><span class="sep">·</span><a class="brand" href="meteorology.html">Antarctic meteorology</a><span class="sep">·</span><a class="brand" href="neurodiversity.html">Autism &amp; employment</a><span class="sep">·</span><a class="brand" href="travel.html">Accessible travel design</a></span>
+    </div>
     <div class="right">
       <nav class="lang" aria-label="Language">
         <a href="#" class="active" aria-current="page">EN</a>
@@ -106,9 +120,14 @@
 
 <header class="hero" id="top">
   <div class="wrap">
-    <span class="eyebrow">Hello there!</span>
-    <h1>I'm Elena Guk.</h1>
-    <p class="lead">I'm an independent researcher and travel designer based in Amsterdam, The Netherlands.<br>I work on three things that don't look connected, but in each one I do the same thing: check what's actually there, instead of trusting the convenient assumption.</p>
+    <div class="hero-top">
+      <div class="hero-text">
+        <span class="eyebrow">Hello there!</span>
+        <h1>I'm Elena Guk.</h1>
+        <p class="lead">I'm an independent researcher and travel designer based in Amsterdam, The Netherlands.<br>I work on three things that don't look connected, but in each one I do the same thing: check what's actually there, instead of trusting the convenient assumption.</p>
+      </div>
+      <div class="hero-photo"><img src="photo.jpeg" alt="Elena Guk"></div>
+    </div>
     <p class="pick">Choose where to start</p>
 
     <div class="doors">
