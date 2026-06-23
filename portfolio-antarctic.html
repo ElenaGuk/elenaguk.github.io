@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-  Elena Guk — PORTFOLIO (antarctic). Part of the site (index.html hub).
-  To show a figure: replace <div class="ph">…</div> with <img src="yourfile.png" alt="…">.
-  Interactive maps: the "View interactive" link points to the exported .html (place it alongside).
--->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -112,7 +107,7 @@
   <div class="wrap">
     <span class="eyebrow">Portfolio &middot; Antarctic meteorology</span>
     <h1>Antarctic forecast verification</h1>
-    <p class="lead">Maps and graphs from my verification work in Antarctica (work in progress)</p>
+    <p class="lead">Maps and graphs from my research in progress (updating)</p>
     <nav class="subnav" aria-label="Portfolio sections">
       <span class="cur" aria-current="page">Antarctic</span>
       <a href="portfolio-montenegro.html">Montenegro</a>
@@ -125,7 +120,7 @@
 <section class="band">
   <div class="wrap">
     <span class="eyebrow">Motivation</span>
-    <h2>Why EVALUATE AI WEATHER MODEL PERFORMANCE FOR ANTARCTIC WINDS?</h2>
+    <h2>Why evaluate AI weather model performance for Antarctic winds?</h2>
     <p class="lead-in">Antarctic near-surface winds are critical for the climate: they drive sea ice formation, boundary layer stability, precipitation reaching the ice sheet, and ice shelf dynamics [1]. Katabatic winds are channelled through narrow coastal valleys at scales of 1–10 km. At these scales, winds may be invisible to global weather models, if they represent the atmosphere on a grid of 0.25° cells (such as GraphCast forecast and ERA5 reanalysis).
 Many AI weather models, such as GraphCast, are not trained on real observations. They learn on ERA5 – a global 
 reconstruction of historical weather which is also a model. Then AI forecast model is verified against ERA5. If ERA5 is 
@@ -133,8 +128,8 @@ wrong, the AI model may look correct anyway.
 GraphCast AI weather forecast model has been shown to outperform classic numerical weather models on global average metrics [2]. However, existing verification benchmarks are dominated by mid-latitude data and may not reflect AI model performance in polar regions. Studies show ERA5 underestimates wind speed at Antarctic coastal stations [3].
 No published study has yet tested on Antarctic in-situ wind observations whether AI models make the same errors. </p>
     <div class="gallery">
-      <figure class="figure reveal"><div class="ph"><span class="pf">fig1_bias_rmse_summary.png</span></div><figcaption><h3 class="cap">Error against stations vs against reanalysis</h3><p>Bias and RMSE at each station computed three ways — GraphCast vs ERA5 vs in-situ observations.</p><div class="meta"></div></figcaption></figure>
-      <figure class="figure reveal"><div class="ph"><span class="pt">Figure &mdash; add image</span><span class="pf">gem_station_map.png</span></div><figcaption><h3 class="cap">25 stations</h3><p>Locations of the low-elevation Antarctic stations used as ground truth, on a polar projection.</p><div class="meta"><span><span class="k">Source:</span> SCAR READER</span></div></figcaption></figure>
+      <figure class="figure reveal"><img src="fig1_bias_rmse_summary.png"><figcaption><h3 class="cap">Error against stations vs against reanalysis</h3><p>Bias and RMSE at each station computed three ways — GraphCast vs ERA5 vs in-situ observations.</p><div class="meta"></div></figcaption></figure>
+      <figure class="figure reveal"><img src="gem_station_map.png"><figcaption><h3 class="cap">25 stations</h3><p>Locations of the low-elevation Antarctic stations used as ground truth, on a polar projection.</p><div class="meta"><span><span class="k">Source:</span> SCAR READER</span></div></figcaption></figure>
     </div>
   </div>
 </section>
