@@ -112,7 +112,7 @@
   <div class="wrap">
     <span class="eyebrow">Portfolio &middot; Antarctic meteorology</span>
     <h1>Antarctic forecast verification</h1>
-    <p class="lead">Maps and graphs from my verification work in Antarctica — testing AI weather forecasts against the data that actually decides whether they are right: the stations on the ice.</p>
+    <p class="lead">Maps and graphs from my verification work in Antarctica (work in progress)</p>
     <nav class="subnav" aria-label="Portfolio sections">
       <span class="cur" aria-current="page">Antarctic</span>
       <a href="portfolio-montenegro.html">Montenegro</a>
@@ -124,31 +124,17 @@
 
 <section class="band">
   <div class="wrap">
-    <span class="eyebrow">The verification study</span>
-    <h2>GraphCast vs ERA5 vs station observations</h2>
-    <p class="lead-in">A three-way verification of near-surface wind speed at 25 Antarctic stations. The point: checked against reanalysis alone, the AI forecast looks accurate; checked against the stations themselves, real errors appear that the reanalysis hides. Accepted at EMS2026 (session OSA1.4) and NL&nbsp;Polar&nbsp;Day&nbsp;2026.</p>
+    <span class="eyebrow">Motivation</span>
+    <h2>Why EVALUATE AI WEATHER MODEL PERFORMANCE FOR ANTARCTIC WINDS?</h2>
+    <p class="lead-in">Antarctic near-surface winds are critical for the climate: they drive sea ice formation, boundary layer stability, precipitation reaching the ice sheet, and ice shelf dynamics [1]. Katabatic winds are channelled through narrow coastal valleys at scales of 1–10 km. At these scales, winds may be invisible to global weather models, if they represent the atmosphere on a grid of 0.25° cells (such as GraphCast forecast and ERA5 reanalysis).
+Many AI weather models, such as GraphCast, are not trained on real observations. They learn on ERA5 – a global 
+reconstruction of historical weather which is also a model. Then AI forecast model is verified against ERA5. If ERA5 is 
+wrong, the AI model may look correct anyway.
+GraphCast AI weather forecast model has been shown to outperform classic numerical weather models on global average metrics [2]. However, existing verification benchmarks are dominated by mid-latitude data and may not reflect AI model performance in polar regions. Studies show ERA5 underestimates wind speed at Antarctic coastal stations [3].
+No published study has yet tested on Antarctic in-situ wind observations whether AI models make the same errors. </p>
     <div class="gallery">
-      <figure class="figure wide reveal"><div class="svgwrap">
-<svg viewBox="0 0 600 230" role="img" aria-label="Three lines of near-surface wind speed over time: station observations, ERA5 reanalysis, and an ML forecast. The forecast tracks the reanalysis closely, while the station record shows a wind peak that both miss.">
-  <rect x="300" y="18" width="92" height="160" fill="var(--amber)" opacity="0.07"/>
-  <line x1="46" y1="178" x2="584" y2="178" stroke="var(--mist)" stroke-width="1"/>
-  <line x1="46" y1="18" x2="46" y2="178" stroke="var(--mist)" stroke-width="1"/>
-  <line x1="46" y1="98" x2="584" y2="98" stroke="var(--mist)" stroke-width="1" opacity="0.55"/>
-  <text x="40" y="24" transform="rotate(-90 40 24)" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-soft)">stronger wind &#8594;</text>
-  <text x="584" y="196" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-soft)">time &#8594;</text>
-  <polyline fill="none" stroke="var(--sea)" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round" points="50,142 110,128 170,138 230,108 290,92 350,82 410,98 470,120 530,114 580,136"/>
-  <polyline fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-linejoin="round" points="50,138 110,130 170,134 230,112 290,98 350,88 410,102 470,118 530,116 580,134"/>
-  <polyline fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" points="50,140 110,120 170,150 230,95 290,55 350,38 410,80 470,125 530,108 580,138"/>
-  <circle cx="350" cy="38" r="3.2" fill="var(--ink)"/><circle cx="350" cy="82" r="2.6" fill="var(--sea)"/><circle cx="350" cy="88" r="3.2" fill="var(--amber)"/>
-  <line x1="352" y1="63" x2="408" y2="46" stroke="var(--amber)" stroke-width="1" opacity="0.6"/>
-  <text x="412" y="42" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" fill="var(--amber)">Real error</text>
-  <text x="412" y="56" font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--ink-soft)">invisible vs reanalysis alone</text>
-</svg>
-<div class="leg"><span><i class="obs"></i>station observations</span><span><i class="rea"></i>ERA5 reanalysis</span><span><i class="fc"></i>ML forecast (GraphCast)</span></div>
-</div><figcaption><h3 class="cap">Near-surface wind speed: stations vs ERA5 vs GraphCast</h3><p>Each line is wind speed over the same period. The forecast (amber) hugs the reanalysis (teal), so verified against reanalysis it scores well — but the station record (dark) carries a real wind peak both miss. Schematic of the central finding.</p><div class="meta"><span><span class="k">Data:</span> GraphCast / WeatherBench2, ERA5, SCAR READER</span><span><span class="k">Tools:</span> Python, xarray</span></div></figcaption></figure>
-      <figure class="figure reveal"><div class="ph"><span class="pt">Figure &mdash; add image</span><span class="pf">error_vs_stations.png</span></div><figcaption><h3 class="cap">Error against stations vs against reanalysis</h3><p>Bias and RMSE at each station computed two ways — against ERA5, and against the in-situ observations. The gap between them is exactly the error a reanalysis-only check misses.</p><div class="meta"><span><span class="k">Metric:</span> bias, RMSE</span><span><span class="k">Stations:</span> 5</span><span><span class="k">Add:</span> error_against_stations_vs_era5.png</span></div></figcaption></figure>
-      <figure class="figure reveal"><div class="ph"><span class="pt">Figure &mdash; add image</span><span class="pf">scar_reader_station_map.png</span></div><figcaption><h3 class="cap">The five SCAR READER stations</h3><p>Locations of the low-elevation Antarctic stations used as ground truth, on a polar projection.</p><div class="meta"><span><span class="k">Source:</span> SCAR READER</span><span><span class="k">Tools:</span> cartopy</span></div></figcaption></figure>
-      <figure class="figure reveal"><div class="ph"><span class="pt">Figure &mdash; add image</span><span class="pf">forecast_vs_observed.png</span></div><figcaption><h3 class="cap">Forecast vs observed wind speed</h3><p>Per-station scatter of forecast against measured wind; departures from the 1:1 line are the surface forecast error, station by station.</p><div class="meta"><span><span class="k">Tools:</span> Python, matplotlib</span><span><span class="k">Add:</span> forecast_vs_observed.png</span></div></figcaption></figure>
+      <figure class="figure reveal"><div class="ph"><span class="pf">fig1_bias_rmse_summary.png</span></div><figcaption><h3 class="cap">Error against stations vs against reanalysis</h3><p>Bias and RMSE at each station computed three ways — GraphCast vs ERA5 vs in-situ observations.</p><div class="meta"></div></figcaption></figure>
+      <figure class="figure reveal"><div class="ph"><span class="pt">Figure &mdash; add image</span><span class="pf">gem_station_map.png</span></div><figcaption><h3 class="cap">25 stations</h3><p>Locations of the low-elevation Antarctic stations used as ground truth, on a polar projection.</p><div class="meta"><span><span class="k">Source:</span> SCAR READER</span></div></figcaption></figure>
     </div>
   </div>
 </section>
