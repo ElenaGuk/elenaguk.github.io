@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+  Elena Guk — PORTFOLIO (montenegro). Part of the site (index.html hub).
+  To show a figure: replace <div class="ph">…</div> with <img src="yourfile.png" alt="…">.
+  Interactive maps: the "View interactive" link points to the exported .html (place it alongside).
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elena Guk — Montenegro climate &amp; accessibility (portfolio)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,500&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F4F1; --paper-2:#EAEBE5; --ink:#1A2A2B; --ink-soft:#42514F;
+    --sea:#356962; --amber:#BF6E26; --amber-soft:#E7B583; --mist:#D4D8D0;
+    --shadow:0 1px 2px rgba(26,42,43,.05), 0 8px 28px rgba(26,42,43,.07);
+    --max:64rem;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Golos Text",system-ui,sans-serif; font-size:18px; line-height:1.62; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 1.5rem}
+  h1,h2,h3{font-family:"Spectral",Georgia,serif; font-weight:600; line-height:1.14; letter-spacing:-.01em; margin:0}
+  p{margin:0 0 1rem}
+  a{color:var(--sea)}
+  .eyebrow{font-family:"JetBrains Mono",monospace; font-weight:500; font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--sea)}
+
+  .topbar{position:sticky; top:0; z-index:50; background:rgba(243,244,241,.93); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid var(--mist)}
+  .topbar .bar{max-width:var(--max); margin:0 auto; padding:.55rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; row-gap:.45rem}
+  .topbar .brand{font-family:"Spectral",serif; font-weight:600; font-size:1rem; color:var(--ink); text-decoration:none; white-space:nowrap}
+  .topbar .brand .home{color:var(--ink-soft); display:inline-block; transition:transform .15s}
+  .topbar .brand:hover .home{transform:translateX(-3px); color:var(--sea)}
+  .topbar .right{display:flex; align-items:center; gap:.7rem}
+  .icon-btn,.tg-btn{display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:999px; border:1.5px solid var(--mist); color:var(--sea); text-decoration:none; transition:transform .15s, border-color .15s}
+  .icon-btn:hover,.tg-btn:hover{transform:translateY(-1px); border-color:var(--sea)}
+  .icon-btn:focus-visible,.tg-btn:focus-visible{outline:3px solid var(--sea); outline-offset:2px}
+  .mini-cta{background:var(--amber); color:#fff; text-decoration:none; font-weight:600; font-size:.85rem; padding:.45rem 1rem; border-radius:999px; white-space:nowrap; transition:transform .15s}
+  .mini-cta:hover{transform:translateY(-1px)} .mini-cta:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
+
+  .hero{padding:3rem 0 1.4rem}
+  .hero h1{font-size:clamp(2.1rem,6vw,3.4rem); margin:.7rem 0 1rem}
+  .hero .lead{font-size:clamp(1.05rem,2.2vw,1.22rem); max-width:60ch; color:var(--ink-soft); margin-bottom:1.3rem}
+
+  .subnav{display:flex; flex-wrap:wrap; gap:.5rem}
+  .subnav a,.subnav span{font-family:"JetBrains Mono",monospace; font-size:.76rem; letter-spacing:.03em; padding:.4rem .8rem; border-radius:999px; text-decoration:none; border:1px solid var(--mist); color:var(--ink-soft)}
+  .subnav a:hover{border-color:var(--sea); color:var(--sea)}
+  .subnav .cur{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+
+  .band{padding:2.4rem 0; border-top:1px solid var(--mist)}
+  .band .eyebrow{display:block; margin-bottom:.5rem}
+  .band h2{font-size:clamp(1.5rem,3.4vw,2.1rem)}
+  .lead-in{max-width:64ch; color:var(--ink-soft); margin:.8rem 0 0}
+
+  .gallery{display:grid; gap:1.6rem; margin-top:1.7rem}
+  @media(min-width:46rem){.gallery{grid-template-columns:1fr 1fr}}
+  .figure{background:#fff; border:1px solid var(--mist); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column}
+  .figure.wide{grid-column:1/-1}
+  .figure img{display:block; width:100%; height:auto; border-bottom:1px solid var(--mist)}
+  .svgwrap{padding:1rem 1.2rem .8rem; background:var(--paper-2); border-bottom:1px solid var(--mist)}
+  .svgwrap svg{display:block; width:100%; height:auto}
+  .leg{display:flex; flex-wrap:wrap; gap:.4rem 1rem; margin:.5rem 0 0; font-family:"JetBrains Mono",monospace; font-size:.7rem; color:var(--ink-soft)}
+  .leg span{display:inline-flex; align-items:center; gap:.4rem}
+  .leg i{width:16px; height:3px; border-radius:2px; display:inline-block}
+  .leg i.obs{background:var(--ink)} .leg i.rea{background:var(--sea)} .leg i.fc{background:var(--amber)}
+  .ph{aspect-ratio:16/10; background:repeating-linear-gradient(45deg,var(--paper-2),var(--paper-2) 11px,#e5e7e0 11px,#e5e7e0 22px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.45rem; text-align:center; color:var(--ink-soft); border-bottom:1px solid var(--mist); padding:1rem}
+  .ph .pt{font-family:"JetBrains Mono",monospace; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase}
+  .ph .pf{font-family:"JetBrains Mono",monospace; font-size:.8rem; color:var(--ink); background:var(--paper); padding:.22rem .55rem; border-radius:6px; border:1px solid var(--mist)}
+  .figure figcaption{padding:1.1rem 1.2rem 1.3rem}
+  .figure .cap{font-size:1.12rem; margin:0 0 .45rem}
+  .figure figcaption p{font-size:.92rem; color:var(--ink-soft); margin:0 0 .7rem}
+  .meta{font-family:"JetBrains Mono",monospace; font-size:.71rem; letter-spacing:.02em; color:var(--sea); display:flex; flex-wrap:wrap; gap:.3rem .7rem}
+  .meta .k{color:var(--ink-soft)}
+
+  #contact{background:var(--ink); color:var(--paper); padding:2.8rem 0 3rem}
+  #contact .eyebrow{color:var(--amber-soft)}
+  #contact h2{color:#fff; font-size:clamp(1.45rem,3.3vw,2rem); margin:.5rem 0 .8rem}
+  #contact .c-lead{color:#c9d2cf; max-width:52ch; margin-bottom:1.4rem}
+  .contact-btns{display:flex; flex-wrap:wrap; gap:.9rem}
+  .btn-2{display:inline-flex; align-items:center; gap:.55rem; text-decoration:none; font-weight:600; font-size:1rem; padding:.8rem 1.4rem; border-radius:999px; transition:transform .15s}
+  .btn-2 svg{flex:0 0 auto}
+  .btn-2:focus-visible{outline:3px solid var(--amber-soft); outline-offset:3px}
+  .btn-2.solid{background:var(--amber); color:#fff} .btn-2.solid:hover{transform:translateY(-2px)}
+  .btn-2.ghost{background:transparent; color:var(--paper); border:1.5px solid #4a5a58} .btn-2.ghost:hover{border-color:var(--amber-soft); transform:translateY(-2px)}
+
+  footer{background:var(--ink); color:#8fa09d; padding:2rem 0 2.6rem; font-size:.88rem}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:.6rem 1.2rem; align-items:center}
+  .sitenav{display:flex; flex-wrap:wrap; gap:.35rem .55rem; font-family:"JetBrains Mono",monospace; font-size:.8rem; align-items:center}
+  .sitenav a{color:#c9d2cf; text-decoration:none} .sitenav a:hover{color:#fff}
+  .sitenav .here{color:#7f8f8c; border-bottom:1px dotted #4a5a58; padding-bottom:1px}
+  .sitenav .sep{color:#46544f}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1; transform:none; transition:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="bar">
+    <a class="brand" href="index.html"><span class="home" aria-hidden="true">&larr;</span> Elena Guk</a>
+    <div class="right">
+      <a class="icon-btn" href="https://www.linkedin.com/in/elenaguk" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      <a class="tg-btn" href="https://t.me/de_schipper" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
+      <a class="mini-cta" href="#contact">Write to me</a>
+    </div>
+  </div></div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Portfolio &middot; Montenegro</span>
+    <h1>Montenegro: climate for accessible travel</h1>
+    <p class="lead">Maps and graphs from a real accessible-travel commission — where the holiday had to fit a heat-sensitive traveller with limited mobility, planned from the climate up.</p>
+    <nav class="subnav" aria-label="Portfolio sections">
+      <a href="portfolio-antarctic.html">Antarctic</a>
+      <span class="cur" aria-current="page">Montenegro</span>
+      <a href="portfolio-other.html">Global &amp; other</a>
+      <a href="meteorology.html">&#8599; Research page</a>
+    </nav>
+  </div>
+</header>
+
+<section class="band">
+  <div class="wrap">
+    <span class="eyebrow">Bioclimatic analysis</span>
+    <h2>When it is actually comfortable to be outside</h2>
+    <p class="lead-in">For an inclusive-travel commission — a traveller and her mother, heat-sensitive and with limited mobility — I built an ERA5-Land pipeline computing the felt temperature across coastal and inland Montenegro, to find the hours and the places where being outdoors is comfortable, not just the air temperature.</p>
+    <div class="gallery">
+      <figure class="figure reveal"><div class="ph"><span class="pt">Figure &mdash; add image</span><span class="pf">safe_walking_window_heatmap.png</span></div><figcaption><h3 class="cap">Diurnal safe-walking windows</h3><p>Felt temperature by week and local hour for each location (July–August, 2016–2025), with the comfortable window picked out. Built on AT_shade, plus the Aizenshtat ЭЭТ (EET) and Russian РЭЭТ indices rather than raw temperature.</p><div class="meta"><span><span class="k">Data:</span> ERA5-Land (CDS)</span><span><span class="k">Indices:</span> AT_shade, EET, РЭЭТ</span><span><span class="k">Years:</span> 2016–2025</span></div></figcaption></figure>
+      <figure class="figure reveal"><div class="ph"><span class="pt">Figure &mdash; add image</span><span class="pf">comfort_by_elevation.png</span></div><figcaption><h3 class="cap">Comfort by elevation</h3><p>Mean July–August Tmax against elevation across Montenegrin towns (lapse rate ≈0.41 °C/100 m), separating the towns in the comfortable band with reasonable coast access from the heat traps — Kolašin stood out; Podgorica did not.</p><div class="meta"><span><span class="k">Data:</span> ERA5-Land, ECA&amp;D</span><span><span class="k">Tools:</span> Python, scipy</span></div></figcaption></figure>
+      <figure class="figure reveal"><div class="ph"><span class="pt">Figure &mdash; add image</span><span class="pf">zabljak_weekly_climate.png</span></div><figcaption><h3 class="cap">Žabljak (Durmitor) — a cooler base</h3><p>Weekly temperature and precipitation climatology for a high-elevation base assessed as a heat-escape alternative to the coast.</p><div class="meta"><span><span class="k">Data:</span> ERA5-Land</span><span><span class="k">Elev:</span> 1450 m</span></div></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <span class="eyebrow">Accessibility mapping</span>
+    <h2>Beaches that actually clear a flat-entry filter</h2>
+    <p class="lead-in">Alongside the climate analysis, a systematic survey of the coastline: 31 beaches assessed against a flat-entry mobility filter and plotted on an interactive map, with candidate bases, exported to KMZ/KML.</p>
+    <div class="gallery">
+      <figure class="figure wide reveal"><div class="ph"><span class="pt">Figure &mdash; add image</span><span class="pf">Montenegro_beach_map.html</span><a href="Montenegro_beach_map.html">View interactive &rarr;</a></div><figcaption><h3 class="cap">Interactive beach-accessibility map</h3><p>31 beaches assessed — 5 clear the flat-entry filter (green), 26 are partial (amber) — plus candidate bases, on Leaflet / OpenStreetMap. Coordinates re-verified against Google Places; exports to KMZ and KML.</p><div class="meta"><span><span class="k">Tools:</span> Leaflet, OpenStreetMap</span><span><span class="k">Output:</span> KMZ / KML</span><span><span class="k">Beaches:</span> 31</span></div></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Get in touch</span>
+    <h2>Write to me</h2>
+    <p class="c-lead">Research collaboration, a PhD opening, or a question about any of this work &mdash; this is where to reach me.</p>
+    <div class="contact-btns">
+      <a class="btn-2 solid" href="mailto:elena.guk@gmail.com">Email me</a>
+      <a class="btn-2 ghost" href="https://t.me/de_schipper" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>Telegram</a>
+      <a class="btn-2 ghost" href="https://www.linkedin.com/in/elenaguk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+      <a class="btn-2 ghost" href="https://github.com/ElenaGuk/Portfolio" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html">Home</a>
+      <span class="sep">·</span>
+      <a href="meteorology.html">Antarctic meteorology</a>
+      <span class="sep">·</span>
+      <a href="neurodiversity.html">Autism &amp; employment</a>
+      <span class="sep">·</span>
+      <a href="travel.html">Accessible travel design</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in"); io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
