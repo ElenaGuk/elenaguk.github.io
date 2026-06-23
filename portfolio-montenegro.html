@@ -112,21 +112,21 @@
   <div class="wrap">
     <span class="eyebrow">Portfolio &middot; Montenegro</span>
     <h1>Montenegro: climate for accessible travel</h1>
-    <p class="lead">Maps and graphs from a real accessible-travel commission — where the holiday had to fit a heat-sensitive traveller, planned from the climate up.</p>
+    <p class="lead">The original task was to define the best coastal stay location in Montenegro for a trip with a heat-sensitive person. After checking what exactly "heat-sensitive" means, I made a hypothesis that in desired months (July or August) staying near the coast will not be comfortable (or even safe) at all. Here's how I checked that and what I advised to the client.</p>
     <nav class="subnav" aria-label="Portfolio sections">
       <a href="portfolio-antarctic.html">Antarctic</a>
       <span class="cur" aria-current="page">Montenegro</span>
       <a href="portfolio-other.html">Global &amp; NL</a>
-      <a href="meteorology.html">&#8599; Antarctic research page</a>
+      <a href="travel.html">&#8599; Travel design page</a>
     </nav>
   </div>
 </header>
 
 <section class="band">
   <div class="wrap">
-    <span class="eyebrow">Bioclimatic analysis</span>
-    <h2>When it is actually comfortable to be outside</h2>
-    <p class="lead-in">For an inclusive-travel commission — a traveller and her mother, heat-sensitive and with limited mobility — I built an ERA5-Land pipeline computing temperature across coastal and inland Montenegro, to find the hours and the places where being outdoors is comfortable (no more than 25-26C as set by the traveller).</p>
+    <span class="eyebrow">Climatic analysis</span>
+    <h2>When it is actually comfortable to be outside?</h2>
+    <p class="lead-in">I built an ERA5-Land pipeline computing temperature across coastal and inland Montenegro, to find the hours and the places where being outdoors is comfortable (no more than 25-26C as set by the client).</p>
     <div class="gallery">
       <figure class="figure wide reveal"><img src="era5_diurnal_coastal.png"><figcaption><h3 class="cap">First check: diurnal temperature cycle</h3><p>Temperature by local hour for popular (near-)coastal locations (July–August, 2001–2025 average). Grey is before sunrise/after-sunset time.<br>We see that comfortable temperature window is potentially only in the morning, not in the evening.<br><br>Now let's look at apparent (feels-like) temperature under the sun for selected locations --></p><div class="meta"><span><span class="k">Data:</span> ERA5-Land (Copernicus CDS)</span></div></figcaption></figure>
       <figure class="figure wide reveal"><img src="heatmap_Budva_sun.png"><figcaption><h3 class="cap">Feels-like under-the-sun temperature in Budva</h3><p>I checked safe temperature window week-by-week. Budva is safe only before 7 am, end of August is better than July and mid-August.</p><div class="meta"><span><span class="k">Data:</span> ERA5-Land (Copernicus CDS)</span></div></figcaption></figure>
